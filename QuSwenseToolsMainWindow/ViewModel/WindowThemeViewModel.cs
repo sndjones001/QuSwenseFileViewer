@@ -49,6 +49,7 @@ namespace QuSwenseToolsMainWindow.ViewModel
         public ICommand MinimizeCommand { get; protected set; }
         public ICommand MaximizeCommand { get; protected set; }
         public ICommand CloseCommand { get; protected set; }
+        public ICommand MenuCommand { get; protected set; }
 
         public WindowThemeViewModel(Window window)
         {
@@ -64,6 +65,7 @@ namespace QuSwenseToolsMainWindow.ViewModel
             MinimizeCommand = new RelayCommand(() => _thisWindow.WindowState = WindowState.Minimized);
             MaximizeCommand = new RelayCommand(() => _thisWindow.WindowState ^= WindowState.Maximized);
             CloseCommand = new RelayCommand(_thisWindow.Close);
+            MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(_thisWindow, GetMousePosition()));
 
             // Fix window resize issue
             var resizer = new WindowResizer(_thisWindow);
@@ -77,6 +79,15 @@ namespace QuSwenseToolsMainWindow.ViewModel
                 // Fire off resize events
                 WindowResized();
             };
+        }
+
+        private Point GetMousePosition()
+        {
+            // Position of the mouse relative to the window
+            var position = Mouse.GetPosition(_thisWindow);
+
+            // Add the window position so its a "ToScreen"
+            return new Point(position.X + _thisWindow.Left, position.Y + _thisWindow.Top);
         }
 
         private void WindowResized() 

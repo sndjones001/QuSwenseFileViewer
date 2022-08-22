@@ -109,7 +109,10 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Icon -->
-                    <Button Style="{StaticResource SystemIconButton}" >
+                    <Button Style="{StaticResource SystemIconButton}">
+                        <Button.InputBindings>
+                            <MouseBinding Gesture="RightClick" Command="{Binding MenuCommand}" />
+                        </Button.InputBindings>
                         <Image Source="/Images/QuSwenseTool-logo.png" />
                     </Button>
 
