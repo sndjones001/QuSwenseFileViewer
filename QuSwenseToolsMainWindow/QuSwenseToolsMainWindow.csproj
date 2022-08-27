@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\json-file.png" />
     <None Remove="Images\QuSwenseTool-logo.png" />
     <None Remove="Images\window-close.png" />
     <None Remove="Images\window-maximize.png" />
@@ -19,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\json-file.png" />
     <Resource Include="Images\QuSwenseTool-logo.png" />
     <Resource Include="Images\window-close.png" />
     <Resource Include="Images\window-maximize.png" />

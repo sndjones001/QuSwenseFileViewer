@@ -39,9 +39,9 @@ namespace QuSwenseToolsMainWindow.ViewModel
             get => IsWindowBorderless ? 0 : _radiusWindowEdges;
             set => _radiusWindowEdges = value;
         }
-        public CornerRadius WindowCornerRadius { get => new CornerRadius(WindowRadius); }
+        //public CornerRadius WindowCornerRadius { get => new CornerRadius(WindowRadius); }
         public CornerRadius CloseButtonCornerRadius { get => new CornerRadius(0, WindowRadius, 0, 0); }
-        public int TitleHeight { get; set; } = 42;
+        public int TitleHeight { get; set; } = 35;
         /// <summary>
         /// The height of the title bar / caption of the window
         /// </summary>
@@ -98,8 +98,11 @@ namespace QuSwenseToolsMainWindow.ViewModel
             NotifyPropertyChanged(nameof(OuterMarginSize));
             NotifyPropertyChanged(nameof(OuterMarginSizeThickness));
             NotifyPropertyChanged(nameof(WindowRadius));
-            NotifyPropertyChanged(nameof(WindowCornerRadius));
+            //NotifyPropertyChanged(nameof(WindowCornerRadius));
+            NotifyPropertyChanged(nameof(WindowRadius));
             NotifyPropertyChanged(nameof(CloseButtonCornerRadius));
         }
+
+        public NavigationViewModel NavigationView { get; set; } = new NavigationViewModel();
     }
 }
